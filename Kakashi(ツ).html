@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="Affordable and professional web design">
+	   <meta name="keywords" content="web design, affordable web design, professional web design">
+  	    <meta name="author" content="Brad Traversy">
+        <title>Acme Web Deisgn | Welcome</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style1.css">
+</head>
+
+    <header>
+    
+    
+    <div class="container">
+        <div id="branding">
+          <h1><span class="highlight">It's Me</span> The Web Developer</h1>
+        </div>
+    
+    
+	<div id="sidebar">
+
+		<ul>
+			<li><a href="index.html">About me</a></li>
+			<li><a href="Projects.html">Projects</a></li>
+			<li class="current"><a href="Kakashi(ツ).html">Kakashi(ツ)</a></li>
+		</ul>
+
+		<div id="sidebar-btn">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+
+	</div>
+    </header>
+    
+    <section id="showcase">
+        <div class="container">
+            <h1>Sup, why are you here?</h1>
+            <p>its me with no life just like to code </p>
+        </div>
+    </section>
+
+    <title>Slider</title>
+</head>
+<body>
+<section class="full-width-slider">
+  <ul class="slides">
+    <li class="selected">
+      <div>
+        <h2>Slide #1 Title</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        <h2>Slide #2 Title</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        <h2>Slide #3 Title</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        <h2>Slide #4 Title</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </li>
+  </ul> <!-- .slides -->
+
+  <ul class="slider-navigation">
+    <li><a href="#0" class="next">Next</a></li>
+    <li><a href="#0" class="prev">Prev</a></li>
+  </ul>
+
+  <ol class="slider-dots-navigation">
+    <li><a href="#0" class="selected">1</a></li>
+    <li><a href="#0">2</a></li>
+    <li><a href="#0">3</a></li>
+    <li><a href="#0">3</a></li>
+  </ol>
+</section> <!-- .full-width-slider -->
+
+<script src="main.js"></script>
+
+    
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+
+	$(document).ready(function(){
+		$('#sidebar-btn').click(function(){
+			$('#sidebar').toggleClass('visible');
+		});
+	});
+
+	</script>
+	
+  </body>
+</html>
