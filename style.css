@@ -1,0 +1,136 @@
+body{
+	margin:0px;
+	padding:0px;
+	font-family:"Helvetica Neue", Helvetica, Arial;
+    font: 15px/1.5 Arial, Helvetica,sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+
+/* headers */
+header {
+    background: #1C1E1F;
+    color: #ffffff;
+    padding-top: 20px;
+    min-height: 70px;
+    border-bottom: white 3px solid;
+}
+
+header a{
+    color:#ffffff;
+    text-decoration:none;
+    text-transform: uppercase;
+    font-size:16px;
+}
+
+header li{
+    display:inline;
+    padding: 0 20px 0 20px;
+}
+
+header .highlight, header .current a{
+    color:#e8491d;
+    font-weight:bold;
+}
+
+header a:hover{
+    color:#cccccc;
+    font-weight:bold;
+}
+
+/* showcase */
+
+#showcase{
+    min-height:400px; background:url('http://content.wallpapers-room.com/resolutions/1920x1200/B/Wallpapers-room_com___Black_Background_Set_Wood_3_by_iAmFreeman_1920x1200.jpg') no-repeat 0 -400px;
+    text-align:center;
+    color:#ffffff;
+}
+
+#showcase h1{
+    margin-top:100px;
+    font-size:55px;
+    margin-bottom:10px;
+    font-family:cursive;
+
+}
+
+#showcase p{
+    font-size:20px;
+    font-family:fantasy;
+}
+
+
+#sidebar{
+	background:#151718;
+	width:200px;
+	height:100%;
+	display:block;
+	position:absolute;
+	left:-200px;
+	top:0px;
+	transition:left 0.3s linear;
+}
+
+#sidebar.visible{
+	left:0px;
+	transition:left 0.3s linear;
+}
+
+ul{
+	margin:0px;
+	padding:0px;
+}
+
+ul li{
+	list-style:none;
+    font-family: fantasy;
+}
+
+ul li a{
+	background:#1C1E1F;
+	color:#ccc;
+	border-bottom:1px solid #111;
+	display:block;
+	width:180px;
+	padding:10px;
+	text-decoration: none;
+}
+
+#sidebar-btn{
+	display:inline-block;
+	vertical-align:middle;
+	width:25px;
+	height:15px;
+	cursor:pointer;
+	margin:20px;
+	position:absolute;
+	top:0px;
+	right:-60px;
+}
+
+#sidebar-btn span{
+	height:3px;
+	background:white;
+	margin-bottom:5.5px;
+	display:block;
+}
+
+#sidebar-btn span:nth-child(2){
+	width:85%;
+    
+}
+
+#sidebar-btn span:nth-child(3){
+	width:65%;
+}
+
+}
