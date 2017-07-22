@@ -1,0 +1,167 @@
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 100%;
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  color: #444444;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* -------------------------------- 
+
+Slides
+
+-------------------------------- */
+.full-width-slider {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+
+.slides {
+  position: relative;
+  height: 100%;
+  background-color: #2c3048;
+}
+
+.slides li {
+  display: table;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform: translateX(100%);
+  transition: transform .5s;
+  background: url(https://ae01.alicdn.com/kf/HTB151EiPXXXXXb5XXXXq6xXFXXXr/Afro-font-b-Samurai-b-font-Silk-Poster-Print-Japanese-Anime-Pictures-for-Wall-Decor-font.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.slides li:nth-of-type(2) {
+  background: url(https://ae01.alicdn.com/kf/HTB18CPKPXXXXXXKapXXq6xXFXXX9/Rurouni-Kenshin-Silk-Canvas-Fabric-font-b-Poster-b-font-Print-font-b-Samurai-b-font.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.slides li:nth-of-type(3) {
+  background: url(https://ae01.alicdn.com/kf/HTB1uFY7PXXXXXbvXFXXq6xXFXXXI/Afro-font-b-Samurai-b-font-Silk-Poster-Print-Japanese-Anime-Pictures-for-Wall-Decor-font.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.slides li:nth-of-type(4) {
+  background: url(https://ae01.alicdn.com/kf/HTB1vz8nRFXXXXXaXXXXq6xXFXXXU/POOMOO-Wall-Decals-new-kids-room-Wall-Decal-Ninja-font-b-Japanese-b-font-font-b.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.slides li.selected {
+  z-index: 2;
+  transform: translateX(0);
+}
+
+.slides li.move-left {
+  transform: translateX(-100%);
+}
+
+.slides li.visible {
+  z-index: 2;
+}
+
+.slides li > div {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #FFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slides h2 {
+  margin-top: 0;
+  font-size: 3.5rem;
+}
+
+/* -------------------------------- 
+
+Slider navigation
+
+-------------------------------- */
+.slider-navigation a {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  height: 48px;
+  width: 48px;
+  /* text replace */
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100%;
+  color: transparent;
+  background: url(../img/icon-arrow.svg) no-repeat center center;
+  opacity: .6;
+  transition: opacity .3s, visibility .3s;
+}
+
+.slider-navigation a:hover {
+  opacity: 1;
+}
+
+.slider-navigation a.next {
+  left: auto;
+  right: 10px;
+  transform: translateY(-50%) rotate(180deg) ;
+}
+
+/* -------------------------------- 
+
+Slider dots navigation
+
+-------------------------------- */
+.slider-dots-navigation {
+  position: absolute;
+  z-index: 3;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slider-dots-navigation li {
+  display: inline-block;
+  float: left;
+  margin-right: 15px;
+}
+
+.slider-dots-navigation a {
+  display: block;
+  height: 14px;
+  width: 14px;
+  border: 1px solid #FFF;
+  border-radius: 50%;
+  /* text replace */
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100%;
+  color: transparent;
+  transition: background-color .3s;
+}
+
+.slider-dots-navigation a.selected {
+  background-color: #FFF;
+}
