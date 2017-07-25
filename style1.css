@@ -1,7 +1,123 @@
 
-*, *::after, *::before {
-  box-sizing: border-box;
+body{
+  margin:0px;
+  padding:0px;
+  font-family:"Helvetica Neue", Helvetica, Arial;
+    font: 15px/1.5 Arial, Helvetica,sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #f4f4f4;
 }
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+
+/* headers */
+header {
+    background: #1C1E1F;
+    color: #ffffff;
+    padding-top: 20px;
+    min-height: 70px;
+    border-bottom: white 3px solid;
+}
+
+header a{
+    color:#ffffff;
+    text-decoration:none;
+    text-transform: uppercase;
+    font-size:16px;
+}
+
+header li{
+    display:inline;
+    padding: 0 20px 0 20px;
+}
+
+header .highlight, header .current a{
+    color:#e8491d;
+    font-weight:bold;
+}
+
+header a:hover{
+    color:#cccccc;
+    font-weight:bold;
+}
+
+
+
+
+#sidebar{
+  background:#151718;
+  width:200px;
+  height:100%;
+  display:block;
+  position:absolute;
+  left:-200px;
+  top:0px;
+  transition:left 0.3s linear;
+}
+
+#sidebar.visible{
+  left:0px;
+  transition:left 0.3s linear;
+}
+
+ul{
+  margin:0px;
+  padding:0px;
+}
+
+ul li{
+  list-style:none;
+    font-family: fantasy;
+}
+
+ul li a{
+  background:#1C1E1F;
+  color:#ccc;
+  border-bottom:1px solid #111;
+  display:block;
+  width:180px;
+  padding:10px;
+  text-decoration: none;
+}
+
+#sidebar-btn{
+  display:inline-block;
+  vertical-align:middle;
+  width:25px;
+  height:15px;
+  cursor:pointer;
+  margin:20px;
+  position:absolute;
+  top:0px;
+  right:-60px;
+}
+
+#sidebar-btn span{
+  height:3px;
+  background:white;
+  margin-bottom:5.5px;
+  display:block;
+}
+
+#sidebar-btn span:nth-child(2){
+  width:85%;
+    
+}
+
+#sidebar-btn span:nth-child(3){
+  width:65%;
+}
+
+
+
+
 
 html {
   font-size: 62.5%;
@@ -23,145 +139,152 @@ ul, ol {
   padding: 0;
 }
 
-/* -------------------------------- 
 
-Slides
 
--------------------------------- */
-.full-width-slider {
-  position: relative;
-  height: 600px;
-  overflow: hidden;
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    background-color: #eefbf8;
+    background-image: radial-gradient(circle, hsla(0,0%,100%,.1), hsla(0,0%,0%,.75)),
+                      linear-gradient(left, transparent 50%, hsla(0,0%,0%,.01) 50%);
+    background-position: 50% 75%, 50% 50%;
+    background-repeat: no-repeat, repeat;
+    background-size: 150% 150%, 3em 3em;
+    font-size: 100%;
+    min-height: 100%;
+}
+  /**********/
+ /* Slider */
+/**********/
+
+.slider {
+    background-color: #fff;
+    box-shadow: inset 0 0 2px hsla(0,0%,0%,.2),
+                0 3px 1px hsla(0,0%,100%,.75),
+                0 -1px 1px 2px hsla(0,0%,0%,.1);
+    height: 18.75em;
+    left: 50%;
+    margin: -9.875em -13em;
+    padding: .5em;
+    position: absolute;
+    top: 89%;
+    width: 25em;
 }
 
-.slides {
-  position: relative;
-  height: 100%;
-  background-color: #2c3048;
+/* Frame */
+
+.slider:before {
+    background-color: #22130c;
+    bottom: -2.5em;
+    box-shadow: inset 0 1px 1px 1px hsla(0,0%,100%,.2),
+                inset 0 -2px 1px hsla(0,0%,0%,.4),
+                0 5px 50px hsla(0,0%,0%,.25),
+                0 20px 20px -15px hsla(0,0%,0%,.2),
+                0 30px 20px -15px hsla(0,0%,0%,.15),
+                0 40px 20px -15px hsla(0,0%,0%,.1);
+    content: '';
+    left: -2.5em;
+    position: absolute;
+    right: -2.5em;
+    top: -2.5em;
+    z-index: -1;
 }
 
-.slides li {
-  display: table;
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  transform: translateX(100%);
-  transition: transform .5s;
-  background: url(https://ae01.alicdn.com/kf/HTB151EiPXXXXXb5XXXXq6xXFXXXr/Afro-font-b-Samurai-b-font-Silk-Poster-Print-Japanese-Anime-Pictures-for-Wall-Decor-font.jpg) no-repeat center center;
-  background-size: cover;
+/* Mat */
+
+.slider:after {
+    background-color: #fff5e5;
+    bottom: -1.5em;
+    box-shadow: 0 2px 1px hsla(0,0%,100%,.2),
+                0 -1px 1px 1px hsla(0,0%,0%,.4),
+                inset 0 2px 3px 1px hsla(0,0%,0%,.2),
+                inset 0 4px 3px 1px hsla(0,0%,0%,.2),
+                inset 0 6px 3px 1px hsla(0,0%,0%,.1);
+    content: '';
+    left: -1.5em;
+    position: absolute;
+    right: -1.5em;
+    top: -1.5em;
+    z-index: -1;
 }
 
-.slides li:nth-of-type(2) {
-  background: url(https://ae01.alicdn.com/kf/HTB18CPKPXXXXXXKapXXq6xXFXXX9/Rurouni-Kenshin-Silk-Canvas-Fabric-font-b-Poster-b-font-Print-font-b-Samurai-b-font.jpg) no-repeat center center;
-  background-size: cover;
+/* Slides */
+
+.slider li {
+    box-shadow: 0 -1px 0 2px hsla(0,0%,0%,.03);
+    list-style:none;
+    position: absolute;
+}
+.slider input {
+    display: none;
 }
 
-.slides li:nth-of-type(3) {
-  background: url(https://ae01.alicdn.com/kf/HTB1uFY7PXXXXXbvXFXXq6xXFXXXI/Afro-font-b-Samurai-b-font-Silk-Poster-Print-Japanese-Anime-Pictures-for-Wall-Decor-font.jpg) no-repeat center center;
-  background-size: cover;
+/* Navigation */
+
+.slider label {
+    background-color: #111;
+    background-image: linear-gradient(transparent, hsla(0,0%,0%,.25));
+    border: .2em solid transparent;
+    bottom: .5em;
+    border-radius: 100%;
+    cursor: pointer;
+    display: block;
+    height: .5em;
+    left: 24em;
+    opacity: 0;
+    position: absolute;
+    transition: .25s;
+    width: .5em;
+    visibility: hidden;
+    z-index: 10;
+}
+.slider label:after {
+    border-radius: 100%;
+    bottom: -.2em;
+    box-shadow: inset 0 0 0 .2em #111,
+                inset 0 2px 2px #000,
+                0 1px 1px hsla(0,0%,100%,.25);
+    content: '';
+    left: -.2em;
+    position: absolute;
+    right: -.2em;
+    top: -.2em;
+}
+.slider:hover label {
+    opacity: 1;
+    visibility: visible;
+}
+.slider input:checked + label {
+    background-color: #fff;
+}
+.slider:hover li:nth-child(1) label {
+    left: .5em;
+}
+.slider:hover li:nth-child(2) label {
+    left: 2em;
+}
+.slider:hover li:nth-child(3) label {
+    left: 3.5em;
+}
+.slider:hover li:nth-child(4) label {
+    left: 5em;
 }
 
-.slides li:nth-of-type(4) {
-  background: url(https://ae01.alicdn.com/kf/HTB1vz8nRFXXXXXaXXXXq6xXFXXXU/POOMOO-Wall-Decals-new-kids-room-Wall-Decal-Ninja-font-b-Japanese-b-font-font-b.jpg) no-repeat center center;
-  background-size: cover;
+/* Images */
+
+.slider img {
+    height: 18.75em;
+    opacity: 0;
+    transition: .25s;
+    width: 25em;
+    vertical-align: top;
+    visibility: hidden;
+}
+.slider li input:checked ~ img {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
 }
 
-.slides li.selected {
-  z-index: 2;
-  transform: translateX(0);
-}
-
-.slides li.move-left {
-  transform: translateX(-100%);
-}
-
-.slides li.visible {
-  z-index: 2;
-}
-
-.slides li > div {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  color: #FFF;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.slides h2 {
-  margin-top: 0;
-  font-size: 3.5rem;
-}
-
-/* -------------------------------- 
-
-Slider navigation
-
--------------------------------- */
-.slider-navigation a {
-  position: absolute;
-  z-index: 3;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 10px;
-  height: 48px;
-  width: 48px;
-  /* text replace */
-  overflow: hidden;
-  white-space: nowrap;
-  text-indent: 100%;
-  color: transparent;
-  background: url(../img/icon-arrow.svg) no-repeat center center;
-  opacity: .6;
-  transition: opacity .3s, visibility .3s;
-}
-
-.slider-navigation a:hover {
-  opacity: 1;
-}
-
-.slider-navigation a.next {
-  left: auto;
-  right: 10px;
-  transform: translateY(-50%) rotate(180deg) ;
-}
-
-/* -------------------------------- 
-
-Slider dots navigation
-
--------------------------------- */
-.slider-dots-navigation {
-  position: absolute;
-  z-index: 3;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.slider-dots-navigation li {
-  display: inline-block;
-  float: left;
-  margin-right: 15px;
-}
-
-.slider-dots-navigation a {
-  display: block;
-  height: 14px;
-  width: 14px;
-  border: 1px solid #FFF;
-  border-radius: 50%;
-  /* text replace */
-  overflow: hidden;
-  white-space: nowrap;
-  text-indent: 100%;
-  color: transparent;
-  transition: background-color .3s;
-}
-
-.slider-dots-navigation a.selected {
-  background-color: #FFF;
-}
