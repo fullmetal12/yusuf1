@@ -1,51 +1,85 @@
 
-var c = document.getElementById("c");
-var ctx = c.getContext("2d");
+(function(){
+	//define a slider object
+	function slider(element) {
+		this.element = element;
+		this.slides = this.element.querySelector('.slides').getElementsByTagName('li');
+		this.slidesNumber = this.slides.length;
+		this.arrowsNavigation = this.element.querySelector('.slider-navigation');
+		this.dotsNavigation = this.element.querySelector('.slider-dots-navigation');
+		this.dots = this.dotsNavigation.getElementsByTagName('a');
 
-//making the canvas full screen
-c.height = window.innerHeight;
-c.width = window.innerWidth;
+		this.selectedSlide = 0;
+		this.prevSelectedSlide = 0;
+		this.intervalId;
+		//check if mouse is over the slide element
+		this.hovered = false;
 
-//chinese characters - taken from the unicode charset
-var chinese = "ITACHITACHITACHITACHIITACHIITACHIACHIITACHITACHITACHITACHITACHITACHITACHITACHITACHITACHI";
-//converting the string into an array of single characters
-chinese = chinese.split("");
+		this.bindEvents();
+		this.initAutoPlay();
+	}
 
-var font_size = 10;
-var columns = c.width/font_size; //number of columns for the rain
-//an array of drops - one per column
-var drops = [];
-//x below is the x coordinate
-//1 = y co-ordinate of the drop(same for every drop initially)
-for(var x = 0; x < columns; x++)
-  drops[x] = 1; 
+	slider.prototype.bindEvents = function() {
+		var self = this;
+		//detect click on arrows
+		this.arrowsNavigation.addEventListener('click', function(event){
+			if( event.target.tagName.toLowerCase() == 'a' ) {
+				event.preventDefault();
+				//determine new slide index
+				var newSlideIndex = ( event.target.classList.contains('next') )
+					? self.selectedSlide + 1
+					: self.selectedSlide - 1;
 
-//drawing the characters
-function draw()
-{
-  //Black BG for the canvas
-  //translucent BG to show trail
-  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-  ctx.fillRect(0, 0, c.width, c.height);
-  
-  ctx.fillStyle = "#0F0"; //green text
-  ctx.font = font_size + "px arial";
-  //looping over drops
-  for(var i = 0; i < drops.length; i++)
-  {
-    //a random chinese character to print
-    var text = chinese[Math.floor(Math.random()*chinese.length)];
-    //x = i*font_size, y = value of drops[i]*font_size
-    ctx.fillText(text, i*font_size, drops[i]*font_size);
-    
-    //sending the drop back to the top randomly after it has crossed the screen
-    //adding a randomness to the reset to make the drops scattered on the Y axis
-    if(drops[i]*font_size > c.height && Math.random() > 0.975)
-      drops[i] = 0;
-    
-    //incrementing Y coordinate
-    drops[i]++;
-  }
-}
+				self.showNewSlide(newSlideIndex);
+			}
+		});
+		//detect click on dots navigation
+		this.dotsNavigation.addEventListener('click', function(event){
+			if( event.target.tagName.toLowerCase() == 'a' ) {
+				event.preventDefault();
+				//determine new slide index
+				var newSlideIndex = elementIndex(event.target.parentElement);
+				self.showNewSlide(newSlideIndex);
+			}
+		});
+		//stop autoplay while hovering over the slider
+		this.element.addEventListener('mouseenter', function(){
+			self.hover = true;
+			clearInterval(self.intervalId);
+		});
+		//initialize autoplay when leaving the slider
+		this.element.addEventListener('mouseleave', function(){
+			self.hover = false;
+			self.initAutoPlay();
+		});
+	}
 
-setInterval(draw, 33);
+	
+
+	$(function() {
+	$('#carousel-zw').carouFredSel({
+		auto: false,
+		items: {
+			visible: 1,
+			start: 1
+		}
+	});
+	$('#carousel-txt').carouFredSel({
+		auto: false,
+		items: 1,
+		scroll: {
+			fx: 'fade',
+			duration: 2000
+		}
+	});
+	$('#carousel-fc').carouFredSel({
+		synchronise: [ ['#carousel-zw'], ['#carousel-txt', false] ],
+		items: 1,
+		scroll: {
+			duration: 1000,
+			timeoutDuration: 3000
+		},
+		prev: '#prev',
+		next: '#next'
+	});
+});
