@@ -1,41 +1,22 @@
 
 body{
-  font: 15px/1.5 Arial, Helvetica,sans-serif;
-  padding:0;
-  margin:0;
-  background-color:#f4f4f4;
+	margin:0px;
+	padding:0px;
+	font-family:"Helvetica Neue", Helvetica, Arial;
+    font: 15px/1.5 Arial, Helvetica,sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #f4f4f4;
 }
 
-/* Global */
-.container{
-  width:80%;
-  margin:auto;
-  overflow:hidden;
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
 }
 
-ul{
-  margin:0;
-  padding:0;
-}
 
-.button_1{
-  height:38px;
-  background:#e8491d;
-  border:0;
-  padding-left: 20px;
-  padding-right:20px;
-  color:#ffffff;
-}
-
-.dark{
-  padding:15px;
-  background:#35424a;
-  color:#ffffff;
-  margin-top:10px;
-  margin-bottom:10px;
-}
-
-/* Header **/
 header{
   background:#35424a;
   color:#ffffff;
@@ -47,6 +28,7 @@ header{
 header a{
   color:#ffffff;
   text-decoration:none;
+  text-transform: uppercase;
   font-size:16px;
 }
 
@@ -70,7 +52,7 @@ header nav{
 }
 
 header .highlight, header .current a{
-  color: lightblue;
+  color:#e8491d;
   font-weight:bold;
 }
 
@@ -79,10 +61,12 @@ header a:hover{
   font-weight:bold;
 }
 
+
+
 /* showcase */
 
 #showcase{
-    min-height:400px; background:url('http://content.wallpapers-room.com/resolutions/1920x1200/B/Wallpapers-room_com___Black_Background_Set_Wood_3_by_iAmFreeman_1920x1200.jpg') no-repeat 0 -400px;
+    min-height:400px; background:url('http://content.wallpapers-room.com/resolutions/1920x1200/B/Wallpapers-room_com___Black_Backfground_Set_Wood_3_by_iAmFreeman_1920x1200.jpg') no-repeat 0 -400px;
     text-align:center;
     color:#ffffff;
 }
@@ -101,83 +85,66 @@ header a:hover{
 }
 
 
-/* Sidebar */
-aside#sidebar{
-  float:right;
-  width:30%;
-  margin-top:10px;
+#sidebar{
+	background:#151718;
+	width:200px;
+	height:100%;
+	display:block;
+	position:absolute;
+	left:-200px;
+	top:0px;
+	transition:left 0.3s linear;
 }
 
-aside#sidebar .quote input, aside#sidebar .quote textarea{
-  width:90%;
-  padding:5px;
+#sidebar.visible{
+	left:0px;
+	transition:left 0.3s linear;
 }
 
-
-footer{
-  padding:20px;
-  margin-top:20px;
-  color:#ffffff;
-  background-color:#e8491d;
-  text-align: center;
+ul{
+	margin:0px;
+	padding:0px;
 }
 
-/* Media Queries */
-@media(max-width: 768px){
-  header #branding,
-  header nav,
-  header nav li,
-  #newsletter h1,
-  #newsletter form,
-  #boxes .box,
-  article#main-col,
-  aside#sidebar{
-    float:none;
-    text-align:center;
-    width:100%;
-  }
-
-  header{
-    padding-bottom:20px;
-  }
-
-  #showcase h1{
-    margin-top:40px;
-  }
-
-  #newsletter button, .quote button{
-    display:block;
-    width:100%;
-  }
-
-  #newsletter form input[type="email"], .quote input, .quote textarea{
-    width:100%;
-    margin-bottom:5px;
-  }
+ul li{
+	list-style:none;
+    font-family: fantasy;
 }
 
-@keyframes slidy {
-0% { left: 0%; }
-20% { left: 0%; }
-25% { left: -100%; }
-45% { left: -100%; }
-50% { left: -100%; }
-70% { left: -100%; }
-75% { left: -100%; }
-95% { left: -100%; }
-100% { left: -200%; }
+ul li a{
+	background:#1C1E1F;
+	color:#ccc;
+	border-bottom:1px solid #111;
+	display:block;
+	width:180px;
+	padding:10px;
+	text-decoration: none;
 }
 
-body { margin: 0; } 
-div#slider { overflow: hidden; }
-div#slider figure img { width: 20%; float: left; }
-div#slider figure { 
-  position: relative;
-  width: 500%;
-  margin: 0;
-  left: 0;
-  text-align: left;
-  font-size: 0;
-  animation: 20s slidy infinite; 
+#sidebar-btn{
+	display:inline-block;
+	vertical-align:middle;
+	width:25px;
+	height:15px;
+	cursor:pointer;
+	margin:20px;
+	position:absolute;
+	top:0px;
+	right:-60px;
 }
 
+#sidebar-btn span{
+	height:3px;
+	background:white;
+	margin-bottom:5.5px;
+	display:block;
+}
+
+#sidebar-btn span:nth-child(2){
+	width:85%;
+    
+}
+
+#sidebar-btn span:nth-child(3){
+	width:65%;
+}
